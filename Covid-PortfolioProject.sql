@@ -112,7 +112,7 @@ order by 2 desc
 
 --10)  Global Numbers
 
-select date, sum(new_cases) TotalNewCases, sum(cast(new_death as int)) TotalNewDeaths, sum(cast(new_death as int))/sum(new_cases)*100 as DeathPercentage
+select date, sum(new_cases) TotalNewCases, sum(cast(new_deaths as int)) TotalNewDeaths, sum(cast(new_deaths as int))/sum(new_cases)*100 as DeathPercentage
 from PortfolioProject..['covid-deaths']
 where continent is not null
 group by date
