@@ -189,12 +189,12 @@ on dea.location = vac.location
 and dea.date = vac.date
 where dea.continent is not null
 and vac.new_vaccinations is not null
---order by 2,3 (cte does  not work with order by)
 )
 select *
 from PopvsVac;
 
 --Note: You have to run this whole query as 1 unit starting from With and to the end
+--Removed order by 2,3 from this query since cte does  not work with order by.
 
 --14)  Now doing our calculations with the CTE query
 
