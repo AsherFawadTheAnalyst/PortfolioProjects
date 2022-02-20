@@ -20,7 +20,7 @@ where total_deaths IS NOT NULL
 and continent IS NOT NULL
 order by 1,2
 
---) Looking at Total Cases vs Population
+--3) Looking at Total Cases vs Population
 
 select location, date, population, total_cases, (total_cases/population)*100 as "Infected Population"
 from PortfolioProject..['covid-deaths']
@@ -34,10 +34,8 @@ order by 1,2
 
 select location, population, max(total_cases) HighestInfectionCount, max((total_cases/population)*100) PercentPopulationInfected 
 from PortfolioProject..['covid-deaths']
-where total_deaths IS NOT NULL 
-and continent IS NOT NULL
 group by location, population
-order by PercentPopulationInfected
+order by PercentPopulationInfected desc
 
 --5) Showing Countries with Highest Death Count per Population
 
