@@ -28,6 +28,12 @@ where total_deaths IS NOT NULL
 and continent IS NOT NULL
 order by 1,2
 
+-- Maximum Total Cases
+select location, population, date, max(total_cases) HighestInfectionCount, 
+max((total_cases/population)*100) PercentPopulationInfected 
+from PortfolioProject..['covid-deaths']
+group by location, population, date
+order by PercentPopulationInfected desc
 
 --4) fix the following query to achieve the goal.
 --Looking at countries with the Highest Infection rate compared to Population
