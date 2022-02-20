@@ -269,4 +269,12 @@ and vac.new_vaccinations is not null)
 --(order by clause is invalid in views, inline functions, derived tables, subqueries, CTE's, unless TOP, OFFSET
 
 
+--17)
+
+select continent, sum( cast(new_deaths as int) ) TotalDeathCount
+from PortfolioProject..['covid-deaths']
+where continent IS NOT NULL
+and location not in ('World', 'European Union', 'International','High Income')
+group by continent
+order by 2
 
