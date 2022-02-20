@@ -110,7 +110,7 @@ where continent IS NOT NULL
 group by continent
 order by 2 desc
 
---10)  Global Numbers
+--10)  Global Numbers:  Total Cases and Total Deaths  and Total New Cases and Total New Deaths
 
 select date, sum(new_cases) TotalNewCases, sum(cast(new_deaths as int)) TotalNewDeaths, sum(cast(new_deaths as int))/sum(new_cases)*100 as DeathPercentage
 from PortfolioProject..['covid-deaths']
@@ -121,6 +121,13 @@ order by 1,2
 --or
 
 select sum(new_cases) TotalNewCases, sum(cast(new_deaths as int)) TotalNewDeaths, sum(cast(new_deaths as int))/sum(new_cases)*100 as DeathPercentage
+from PortfolioProject..['covid-deaths']
+where continent is not null
+order by 1,2
+
+-- Total Cases and Total Deaths
+
+select sum(total_cases) TotalCases, sum(cast(total_deaths as int)) TotalDeaths, sum(cast(total_deaths as int))/sum(total_cases)*100 as DeathPercentage
 from PortfolioProject..['covid-deaths']
 where continent is not null
 order by 1,2
